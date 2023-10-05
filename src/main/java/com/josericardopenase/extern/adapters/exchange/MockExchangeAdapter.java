@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MockExchangeAdapter implements ExchangePort {
-
     @Override
     public double getExchangeRate(String fromCurrency, String toCurrency) {
         return Math.random() * (2 - 0.5) + 0.5; // Random rate between 0.5 and 2

@@ -1,4 +1,4 @@
-package com.josericardopenase.apis.rest.currencyconversion;
+package com.josericardopenase.apis.rest.v1.currencyconversion;
 
 import com.josericardopenase.core.infraestructure.ports.ExchangePort;
 import com.josericardopenase.core.infraestructure.repositories.CurrencyConversionRepository;

@@ -1,4 +1,4 @@
-package com.josericardopenase.apis.rest.currencyconversion;
+package com.josericardopenase.apis.rest.v1.currencyconversion;
 
 import com.josericardopenase.core.domain.entities.CurrencyConversion;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 @RestController
-@RequestMapping("/v1/currency_conversion")
+@RequestMapping("/v1")
 public class CurrencyConversionController {
     @Autowired
     private CurrencyConversionService currencyConversionService;

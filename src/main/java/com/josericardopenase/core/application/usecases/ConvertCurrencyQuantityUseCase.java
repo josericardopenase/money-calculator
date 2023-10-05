@@ -5,7 +5,7 @@ import com.josericardopenase.core.infraestructure.repositories.CurrencyConversio
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class ConvertCurrencyQuantityUseCase {
+public class ConvertCurrencyQuantityUseCase{
     private final ExchangePort exchange;
     private final CurrencyConversionRepository repository;
     public CurrencyConversion execute(double quantity, String from, String to) {
