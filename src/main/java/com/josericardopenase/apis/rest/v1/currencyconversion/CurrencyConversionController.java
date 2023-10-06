@@ -1,5 +1,7 @@
 package com.josericardopenase.apis.rest.v1.currencyconversion;
 
+import com.josericardopenase.apis.rest.shared.responses.ApiPaginatedResponseWrapper;
+import com.josericardopenase.apis.rest.shared.responses.ApiResponseWrapper;
 import com.josericardopenase.core.domain.entities.CurrencyConversion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,41 +18,42 @@ public class CurrencyConversionController {
     private CurrencyConversionService currencyConversionService;
 
     @GetMapping("/{from}/convert/{to}/amount/{amount}/")
-    public CurrencyConversion convertCurrency(
+    public ApiResponseWrapper<CurrencyConversion> convertCurrency(
             @PathVariable String from,
             @PathVariable String to,
             @PathVariable double amount
     ) {
-        return currencyConversionService.convertCurrency(from, to, amount);
+        return new ApiResponseWrapper<>(currencyConversionService.convertCurrency(from, to, amount));
     }
 
     @GetMapping("/conversions/")
-    public List<CurrencyConversion> getAllCurrencyConversions() {
-        return currencyConversionService.getAllCurrencyConversions();
+    public ApiResponseWrapper<List<CurrencyConversion>> getAllCurrencyConversions() {
+        return new ApiPaginatedResponseWrapper<>(currencyConversionService.getAllCurrencyConversions());
     }
 
     @GetMapping("/{baseCurrency}/chart/{comparedCurrency}/")
-    public double[] getCurrencyValueChart(
+    public ApiResponseWrapper<double[]> getCurrencyValueChart(
             @PathVariable String baseCurrency,
             @PathVariable String comparedCurrency
     ){
+        //FIXME: this logic should not be here
         Calendar calendar = Calendar.getInstance();
         Date currentDate = calendar.getTime();
         calendar.add(Calendar.MONTH, -12);
         Date yearAgo = calendar.getTime();
-        return currencyConversionService.getCurrencyValueChart(baseCurrency, comparedCurrency, yearAgo, currentDate);
+        return new ApiResponseWrapper<>(currencyConversionService.getCurrencyValueChart(baseCurrency, comparedCurrency, yearAgo, currentDate));
     }
 
     @GetMapping("/")
-    public Map<String, String> getSupportedCurrencies(){
-        return currencyConversionService.getSupportedCurrencies();
+    public ApiResponseWrapper<Map<String, String>> getSupportedCurrencies(){
+        return new ApiResponseWrapper<>(currencyConversionService.getSupportedCurrencies());
     }
 
     @GetMapping("/{id}/")
-    public Map<String, String> getDetailedCurrency(
+    public ApiResponseWrapper<Map<String, String>> getDetailedCurrency(
             @PathVariable String id
     )
     {
-        return currencyConversionService.getSupportedCurrencies();
+        return new ApiResponseWrapper<>(currencyConversionService.getSupportedCurrencies());
     }
 }

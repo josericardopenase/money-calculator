@@ -1,4 +1,4 @@
 FROM openjdk:17
-COPY ./build/classes /tmp
+COPY ./ /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java","MoneyCalculatorApplication"]
+ENTRYPOINT ["./gradlew","run"]
