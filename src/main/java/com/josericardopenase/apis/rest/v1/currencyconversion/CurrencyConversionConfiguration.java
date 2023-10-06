@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CurrencyConversionConfiguration {
     @Bean
-    public CurrencyConversionRepository createCategoryRepositoryConverter() {
+    public CurrencyConversionRepository createCurrencyConversionRepository() {
         return new InMemoryCurrencyConversionRepository();
     }
 

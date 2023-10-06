@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/currencies/")
 public class CurrencyConversionController {
     @Autowired
     private CurrencyConversionService currencyConversionService;
 
-    @GetMapping("/{from}/{to}/{amount}")
+    @GetMapping("/{from}/convert/{to}/amount/{amount}/")
     public CurrencyConversion convertCurrency(
             @PathVariable String from,
             @PathVariable String to,
@@ -24,25 +24,33 @@ public class CurrencyConversionController {
         return currencyConversionService.convertCurrency(from, to, amount);
     }
 
-    @GetMapping("/history/")
+    @GetMapping("/conversions/")
     public List<CurrencyConversion> getAllCurrencyConversions() {
         return currencyConversionService.getAllCurrencyConversions();
     }
 
-    @GetMapping("/currency_chart/{baseCurrency}/{comparedCurrency}")
+    @GetMapping("/{baseCurrency}/chart/{comparedCurrency}/")
     public double[] getCurrencyValueChart(
             @PathVariable String baseCurrency,
             @PathVariable String comparedCurrency
     ){
         Calendar calendar = Calendar.getInstance();
         Date currentDate = calendar.getTime();
-        calendar.add(Calendar.MONTH, -6);
-        Date sixMonthsAgoDate = calendar.getTime();
-        return currencyConversionService.getCurrencyValueChart(baseCurrency, comparedCurrency, sixMonthsAgoDate, currentDate);
+        calendar.add(Calendar.MONTH, -12);
+        Date yearAgo = calendar.getTime();
+        return currencyConversionService.getCurrencyValueChart(baseCurrency, comparedCurrency, yearAgo, currentDate);
     }
 
-    @GetMapping("/supported")
+    @GetMapping("/")
     public Map<String, String> getSupportedCurrencies(){
+        return currencyConversionService.getSupportedCurrencies();
+    }
+
+    @GetMapping("/{id}/")
+    public Map<String, String> getDetailedCurrency(
+            @PathVariable String id
+    )
+    {
         return currencyConversionService.getSupportedCurrencies();
     }
 }

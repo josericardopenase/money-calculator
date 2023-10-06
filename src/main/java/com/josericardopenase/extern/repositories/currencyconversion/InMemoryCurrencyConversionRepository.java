@@ -9,7 +9,6 @@ import java.util.Optional;
 public class InMemoryCurrencyConversionRepository implements CurrencyConversionRepository {
     private final List<CurrencyConversion> conversions = new ArrayList<>();
     private int nextId = 1;
-
     @Override
     public Optional<CurrencyConversion> getById(int id) {
         return conversions.stream()
