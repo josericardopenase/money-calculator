@@ -28,8 +28,6 @@ public class MockExchangeAdapter implements ExchangePort {
             System.arraycopy(priceEvolution, 0, newArray, 0, priceEvolution.length);
             newArray[priceEvolution.length] = randomPrice;
             priceEvolution = newArray;
-
-            // Increment the date by one day for demonstration purposes
             currentDate.setTime(currentDate.getTime() + 24 * 60 * 60 * 1000);
         }
 
@@ -39,12 +37,9 @@ public class MockExchangeAdapter implements ExchangePort {
     @Override
     public Map<String, String> getSupportedCurrencies() {
         Map<String, String> currencyMap = new HashMap<String, String>();
-
-        // Add the currency data to the map
         currencyMap.put("AED", "United Arab Emirates Dirham");
         currencyMap.put("AFN", "Afghan Afghani");
         currencyMap.put("ALL", "Albanian Lek");
-        // Add all the other currency data here...
         return currencyMap;
     }
 

@@ -1,4 +1,4 @@
-package com.josericardopenase.core.infraestructure.interfaces;
+package com.josericardopenase.core.infraestructure.repositories;
 
 import java.util.List;
 import java.util.Optional;
