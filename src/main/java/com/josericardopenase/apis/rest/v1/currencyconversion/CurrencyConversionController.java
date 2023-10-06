@@ -3,6 +3,8 @@ package com.josericardopenase.apis.rest.v1.currencyconversion;
 import com.josericardopenase.apis.rest.shared.responses.ApiPaginatedResponseWrapper;
 import com.josericardopenase.apis.rest.shared.responses.ApiResponseWrapper;
 import com.josericardopenase.core.domain.entities.CurrencyConversion;
+import com.josericardopenase.core.domain.exceptions.ValidationError;
+import org.apache.el.util.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,7 +43,10 @@ public class CurrencyConversionController {
         Date currentDate = calendar.getTime();
         calendar.add(Calendar.MONTH, -12);
         Date yearAgo = calendar.getTime();
-        return new ApiResponseWrapper<>(currencyConversionService.getCurrencyValueChart(baseCurrency, comparedCurrency, yearAgo, currentDate));
+        return new ApiResponseWrapper<>(
+                currencyConversionService
+                        .getCurrencyValueChart(baseCurrency, comparedCurrency, yearAgo, currentDate)
+        );
     }
 
     @GetMapping("/")

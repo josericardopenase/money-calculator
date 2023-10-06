@@ -1,4 +1,8 @@
 package com.josericardopenase.apis.rest.shared.responses;
+
+import lombok.Getter;
+
+@Getter
 public class ApiResponseWrapper<T> {
 
     public ApiResponseWrapper(int status, T result) {
@@ -6,15 +10,7 @@ public class ApiResponseWrapper<T> {
         this.result = result;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
     private final int status;
-
-    public T getResult() {
-        return result;
-    }
 
     private final T result;
 
