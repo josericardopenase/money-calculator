@@ -1,11 +1,11 @@
-package com.josericardopenase.extern.adapters.exchange;
+package com.josericardopenase.extern.services.exchange;
 
-import com.josericardopenase.core.infraestructure.ports.ExchangePort;
+import com.josericardopenase.core.infraestructure.services.ExchangeService;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MockExchangeAdapter implements ExchangePort {
+public class MockExchangeService implements ExchangeService {
     @Override
     public double getExchangeRate(String fromCurrency, String toCurrency) {
         return Math.random() * (2 - 0.5) + 0.5; // Random rate between 0.5 and 2

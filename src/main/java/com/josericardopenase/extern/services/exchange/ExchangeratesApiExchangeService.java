@@ -1,12 +1,11 @@
-package com.josericardopenase.extern.adapters.exchange;
+package com.josericardopenase.extern.services.exchange;
 
-import com.josericardopenase.core.infraestructure.ports.ExchangePort;
+import com.josericardopenase.core.infraestructure.services.ExchangeService;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
-public class ExchangeratesApiExchangeAdapter implements ExchangePort {
+public class ExchangeratesApiExchangeService implements ExchangeService {
     @Override
     public double getExchangeRate(String fromCurrency, String toCurrency) {
         return 0;

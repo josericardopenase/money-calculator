@@ -5,7 +5,7 @@ import com.josericardopenase.core.application.usecases.AllCurrencyConversionsSea
 import com.josericardopenase.core.application.usecases.CurrencyValueChartGenerator;
 import com.josericardopenase.core.application.usecases.AllSupportedCurrenciesSearcher;
 import com.josericardopenase.core.domain.entities.CurrencyConversion;
-import com.josericardopenase.core.infraestructure.ports.ExchangePort;
+import com.josericardopenase.core.infraestructure.services.ExchangeService;
 import com.josericardopenase.core.infraestructure.repositories.CurrencyConversionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +17,10 @@ import java.util.Map;
 @Service
 public class CurrencyConversionService {
 
-    private final ExchangePort exchange;
+    private final ExchangeService exchange;
     private final CurrencyConversionRepository repository;
     @Autowired
-    public CurrencyConversionService(ExchangePort exchangePort, CurrencyConversionRepository currencyConversionRepository) {
+    public CurrencyConversionService(ExchangeService exchangePort, CurrencyConversionRepository currencyConversionRepository) {
         this.exchange = exchangePort;
         this.repository = currencyConversionRepository;
     }
