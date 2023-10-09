@@ -5,10 +5,10 @@ import lombok.AllArgsConstructor;
 import java.util.Map;
 
 @AllArgsConstructor
-public class GetSupportedCurrenciesUseCase {
+public class AllSupportedCurrenciesSearcher {
     final private ExchangePort exchange;
 
-    public Map<String, String> execute(){
+    public Map<String, String> search(){
         return this.exchange.getSupportedCurrencies();
     }
 }

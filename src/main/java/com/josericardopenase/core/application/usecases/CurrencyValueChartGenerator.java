@@ -5,10 +5,10 @@ import lombok.AllArgsConstructor;
 import java.util.Date;
 
 @AllArgsConstructor
-public class GetCurrencyValueChartUseCase {
+public class CurrencyValueChartGenerator {
     final private ExchangePort exchange;
 
-    public double[] execute(String baseCurrency, String comparedCurrency, Date startDate, Date endDate){
+    public double[] generate(String baseCurrency, String comparedCurrency, Date startDate, Date endDate){
         return this.exchange.getCurrencyPriceEvolution(baseCurrency, comparedCurrency, startDate, endDate);
     }
 }

@@ -6,14 +6,12 @@ import com.josericardopenase.core.domain.entities.CurrencyConversion;
 import com.josericardopenase.core.domain.exceptions.ValidationError;
 import org.apache.el.util.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173/", maxAge = 3600)
 @RequestMapping("/v1/currencies/")
 public class CurrencyConversionController {
     @Autowired

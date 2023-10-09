@@ -1,9 +1,9 @@
 package com.josericardopenase.apis.rest.v1.currencyconversion;
 
-import com.josericardopenase.core.application.usecases.ConvertCurrencyQuantityUseCase;
-import com.josericardopenase.core.application.usecases.GetAllCurrencyConversionsUseCase;
-import com.josericardopenase.core.application.usecases.GetCurrencyValueChartUseCase;
-import com.josericardopenase.core.application.usecases.GetSupportedCurrenciesUseCase;
+import com.josericardopenase.core.application.usecases.CurrencyQuantityConverter;
+import com.josericardopenase.core.application.usecases.AllCurrencyConversionsSearcher;
+import com.josericardopenase.core.application.usecases.CurrencyValueChartGenerator;
+import com.josericardopenase.core.application.usecases.AllSupportedCurrenciesSearcher;
 import com.josericardopenase.core.domain.entities.CurrencyConversion;
 import com.josericardopenase.core.infraestructure.ports.ExchangePort;
 import com.josericardopenase.core.infraestructure.repositories.CurrencyConversionRepository;
@@ -25,20 +25,20 @@ public class CurrencyConversionService {
         this.repository = currencyConversionRepository;
     }
     public CurrencyConversion convertCurrency(String from, String to, double amount) {
-        var useCase = new ConvertCurrencyQuantityUseCase(this.exchange, this.repository);
-        return useCase.execute(amount, from, to);
+        var useCase = new CurrencyQuantityConverter(this.exchange, this.repository);
+        return useCase.convert(amount, from, to);
     }
 
     public List<CurrencyConversion> getAllCurrencyConversions() {
-        var useCase = new GetAllCurrencyConversionsUseCase(this.repository);
-        return useCase.execute();
+        var useCase = new AllCurrencyConversionsSearcher(this.repository);
+        return useCase.search();
     }
     public double[] getCurrencyValueChart(String baseCurrency, String comparedCurrency, Date startDate, Date endDate)  {
-        var useCase = new GetCurrencyValueChartUseCase(this.exchange);
-        return useCase.execute(baseCurrency, comparedCurrency, startDate, endDate);
+        var useCase = new CurrencyValueChartGenerator(this.exchange);
+        return useCase.generate(baseCurrency, comparedCurrency, startDate, endDate);
     }
     public Map<String, String> getSupportedCurrencies(){
-        var useCase = new GetSupportedCurrenciesUseCase(this.exchange);
-        return useCase.execute();
+        var useCase = new AllSupportedCurrenciesSearcher(this.exchange);
+        return useCase.search();
     }
 }

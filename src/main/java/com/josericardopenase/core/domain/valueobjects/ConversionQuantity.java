@@ -11,7 +11,7 @@ public class ConversionQuantity {
     }
 
     public static void validate(double quantity) {
-        if (quantity <= 0) {
+        if (quantity < 0) {
             throw new ValidationError("Conversion quantity must be a numeric value greater than 0");
         }
     }

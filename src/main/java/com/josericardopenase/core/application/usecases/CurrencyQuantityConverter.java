@@ -5,10 +5,10 @@ import com.josericardopenase.core.infraestructure.repositories.CurrencyConversio
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class ConvertCurrencyQuantityUseCase{
+public class CurrencyQuantityConverter {
     private final ExchangePort exchange;
     private final CurrencyConversionRepository repository;
-    public CurrencyConversion execute(double quantity, String from, String to) {
+    public CurrencyConversion convert(double quantity, String from, String to) {
         double resultQuantity = exchange.convertCurrency(from, to, quantity);
         CurrencyConversion conversion = new CurrencyConversion(1, quantity, resultQuantity, from, to);
         return repository.save(conversion);

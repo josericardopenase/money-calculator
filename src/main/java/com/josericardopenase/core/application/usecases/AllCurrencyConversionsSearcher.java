@@ -7,10 +7,10 @@ import lombok.AllArgsConstructor;
 import java.util.List;
 
 @AllArgsConstructor
-public class GetAllCurrencyConversionsUseCase{
+public class AllCurrencyConversionsSearcher {
     final private CurrencyConversionRepository repository;
 
-    public List<CurrencyConversion> execute(){
+    public List<CurrencyConversion> search(){
         return this.repository.getAll();
     }
 }
