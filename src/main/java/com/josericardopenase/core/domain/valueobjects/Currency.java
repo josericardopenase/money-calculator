@@ -1,6 +1,6 @@
 package  com.josericardopenase.core.domain.valueobjects;
 
-import com.josericardopenase.core.domain.exceptions.ValidationError;
+import com.josericardopenase.core.domain.exceptions.DomainError;
 import lombok.Getter;
 
 @Getter
@@ -13,7 +13,7 @@ public class Currency {
 
     public static void validate(String currency) {
         if (!currency.matches("^[A-Z]{3}$")) {
-            throw new ValidationError("Currency must be a string of 3 uppercase letters");
+            throw new DomainError("Currency must be a string of 3 uppercase letters");
         }
     }
 

@@ -3,8 +3,6 @@ package com.josericardopenase.apis.rest.v1.currencyconversion;
 import com.josericardopenase.apis.rest.shared.responses.ApiPaginatedResponseWrapper;
 import com.josericardopenase.apis.rest.shared.responses.ApiResponseWrapper;
 import com.josericardopenase.core.domain.entities.CurrencyConversion;
-import com.josericardopenase.core.domain.exceptions.ValidationError;
-import org.apache.el.util.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

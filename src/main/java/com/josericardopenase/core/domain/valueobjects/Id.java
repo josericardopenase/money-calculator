@@ -1,5 +1,5 @@
 package com.josericardopenase.core.domain.valueobjects;
-import com.josericardopenase.core.domain.exceptions.ValidationError;
+import com.josericardopenase.core.domain.exceptions.DomainError;
 import lombok.Getter;
 
 @Getter
@@ -12,7 +12,7 @@ public class Id {
 
     public static void validate(int id) {
         if (id < 0) {
-            throw new ValidationError("Id cannot be less than 0");
+            throw new DomainError("Id cannot be less than 0");
         }
     }
 

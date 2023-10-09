@@ -1,5 +1,5 @@
 package com.josericardopenase.core.domain.valueobjects;
-import com.josericardopenase.core.domain.exceptions.ValidationError;
+import com.josericardopenase.core.domain.exceptions.DomainError;
 import lombok.Getter;
 
 @Getter
@@ -12,7 +12,7 @@ public class ConversionQuantity {
 
     public static void validate(double quantity) {
         if (quantity < 0) {
-            throw new ValidationError("Conversion quantity must be a numeric value greater than 0");
+            throw new DomainError("Conversion quantity must be a numeric value greater than 0");
         }
     }
 
