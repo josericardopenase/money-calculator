@@ -4,11 +4,11 @@ Este proyecto es una API REST para el intercambio de divisas, desarrollada en Ja
 
 ## Características
 
-- **Listar Monedas (`GET /v1/currencies/`):** Este endpoint proporciona una lista de todas las monedas disponibles. Incluye opciones de filtrado y clasificación para una búsqueda eficiente.
+- **Listar Monedas (`GET /v1/currencies/`):** Este endpoint proporciona una lista de todas las monedas disponibles.
 - **Detalles de Moneda (`GET /v1/currencies/:id/`):** Obtiene información detallada de una moneda específica, incluyendo nombre, símbolo y valor actual.
-- **Listar Conversiones Realizadas (`GET /v1/currencies/conversions/`):** Muestra un histórico de conversiones de moneda, con opciones de filtrado y paginación.
-- **Convertir Moneda (`POST /v1/currencies/:id/convert/:other/amount/:quantity/`):** Realiza conversiones entre monedas. Se utiliza el método POST para mayor seguridad y escalabilidad.
-- **Gráfica Comparativa de Monedas (`GET /v1/currencies/:id/chart/:other/`):** Genera gráficos comparativos entre dos monedas, con opciones para limitar el rango de tiempo y la granularidad de los datos.
+- **Listar Conversiones Realizadas (`GET /v1/currencies/conversions/`):** Muestra un histórico de conversiones de monedas.
+- **Convertir Moneda (`POST /v1/currencies/:id/convert/:other/amount/:quantity/`):** Realiza conversiones entre monedas.
+- **Gráfica Comparativa de Monedas (`GET /v1/currencies/:id/chart/:other/`):** Genera gráficos comparativos entre dos monedas.
 
 ## Tecnologías Utilizadas
 
