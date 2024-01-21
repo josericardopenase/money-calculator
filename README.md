@@ -106,11 +106,3 @@ Las contribuciones son bienvenidas. Por favor, lee el archivo `CONTRIBUTING.md` 
 ## Licencia
 
 Este proyecto está bajo la licencia [Nombre de la Licencia]. Consulta el archivo `LICENSE` para más detalles.
-
----
-
-Este README incluye ahora ejemplos de respuestas para cada endpoint, lo cual ayudará a los usuarios a entender mejor cómo funciona tu API. Recuerda reemplazar `[URL del repositorio]`, `[Nombre del proyecto]`, y `[Nombre de la Licencia]` con los datos específicos de tu proyecto.
-
-## Licencia
-
-Este proyecto está bajo la licencia [Nombre de la Licencia]. Consulta el archivo `LICENSE` para más detalles.
