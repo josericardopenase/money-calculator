@@ -1,23 +1,44 @@
-# CURRENCY EXCHANGE API
+# API de Intercambio de Divisas
 
-## Endpoints
+Este proyecto es una API REST para el intercambio de divisas, desarrollada en Java con Spring Boot y siguiendo los principios de Domain-Driven Design (DDD). Ofrece una variedad de endpoints para listar monedas disponibles, obtener detalles de monedas específicas, realizar conversiones de moneda y visualizar gráficos comparativos de monedas.
 
-### GET /v1/currencies/
+## Características
 
-Este endpoint parece sólido para listar monedas disponibles. Sin embargo, podrías considerar agregar opciones de filtrado o clasificación para permitir a los usuarios encontrar monedas de manera más eficiente. Por ejemplo, podrías permitir que los usuarios filtren monedas por nombre, símbolo o incluso por su valor actual en relación con una moneda específica.
+- **Listar Monedas (`GET /v1/currencies/`):** Este endpoint proporciona una lista de todas las monedas disponibles. Incluye opciones de filtrado y clasificación para una búsqueda eficiente.
+- **Detalles de Moneda (`GET /v1/currencies/:id/`):** Obtiene información detallada de una moneda específica, incluyendo nombre, símbolo y valor actual.
+- **Listar Conversiones Realizadas (`GET /v1/currencies/conversions/`):** Muestra un histórico de conversiones de moneda, con opciones de filtrado y paginación.
+- **Convertir Moneda (`POST /v1/currencies/:id/convert/:other/amount/:quantity/`):** Realiza conversiones entre monedas. Se utiliza el método POST para mayor seguridad y escalabilidad.
+- **Gráfica Comparativa de Monedas (`GET /v1/currencies/:id/chart/:other/`):** Genera gráficos comparativos entre dos monedas, con opciones para limitar el rango de tiempo y la granularidad de los datos.
 
-### GET /v1/currencies/:id/
+## Tecnologías Utilizadas
 
-El endpoint para obtener detalles de una moneda específica está bien diseñado. Asegúrate de proporcionar una respuesta JSON completa que incluya información detallada sobre la moneda, como su nombre, símbolo, valor actual, etc.
+- **Java:** Lenguaje de programación principal.
+- **Spring Boot:** Framework para la creación de aplicaciones Spring con mínimo esfuerzo.
+- **Domain-Driven Design (DDD):** Enfoque de diseño centrado en el dominio del problema.
 
-### GET /v1/currencies/conversions/
+## Instalación
 
-Este endpoint es adecuado para listar conversiones de moneda realizadas. Sin embargo, como mencioné anteriormente, podrías considerar agregar opciones de filtrado y paginación para mejorar la usabilidad a medida que la lista crezca.
+1. Clona el repositorio:
+   ```bash
+   git clone [URL del repositorio]
+   ```
+2. Navega al directorio del proyecto:
+   ```bash
+   cd [Nombre del proyecto]
+   ```
+3. Construye y ejecuta el proyecto usando Maven:
+   ```bash
+   mvn spring-boot:run
+   ```
 
-### GET /v1/currencies/:id/convert/:other/amount/:quantity/
+## Uso
 
-Este endpoint, aunque tiene un propósito claro, podría beneficiarse de un cambio en el método HTTP. Dado que realiza una conversión (que podría considerarse como una operación que modifica datos), podrías usar un método POST en lugar de GET para seguir los principios REST más estrictamente. Esto también permitiría enviar los parámetros de conversión en el cuerpo de la solicitud en lugar de en la URL, lo que podría ser más seguro y escalable.
+Después de iniciar la aplicación, los endpoints estarán disponibles en `http://localhost:[puerto]/v1/currencies/`. Puedes usar herramientas como Postman o cURL para interactuar con la API.
 
-### GET /v1/currencies/:id/chart/:other/
+## Contribuciones
 
-El endpoint para obtener una gráfica comparativa es interesante, pero nuevamente, ten en cuenta la posible carga de trabajo generada por la generación de gráficos. Asegúrate de que esta operación sea eficiente y, si es posible, considera opciones para limitar el rango de tiempo de la gráfica o la granularidad de los datos para evitar cargas innecesarias en el servidor.
+Las contribuciones son bienvenidas. Por favor, lee el archivo `CONTRIBUTING.md` para más detalles sobre cómo contribuir al proyecto.
+
+## Licencia
+
+Este proyecto está bajo la licencia [Nombre de la Licencia]. Consulta el archivo `LICENSE` para más detalles.
