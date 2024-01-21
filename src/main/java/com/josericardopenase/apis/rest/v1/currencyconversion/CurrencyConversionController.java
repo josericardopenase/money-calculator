@@ -34,15 +34,16 @@ public class CurrencyConversionController {
             @PathVariable String baseCurrency,
             @PathVariable String comparedCurrency
     ){
-        //FIXME: this logic should not be here
         Calendar calendar = Calendar.getInstance();
-        Date currentDate = calendar.getTime();
-        calendar.add(Calendar.MONTH, -12);
-        Date yearAgo = calendar.getTime();
         return new ApiResponseWrapper<>(
                 currencyConversionService
-                        .getCurrencyValueChart(baseCurrency, comparedCurrency, yearAgo, currentDate)
+                        .getCurrencyValueChart(baseCurrency, comparedCurrency, getYearAgo(calendar), calendar.getTime())
         );
+    }
+
+    private Date getYearAgo(Calendar calendar) {
+        calendar.add(Calendar.MONTH, -12);
+        return calendar.getTime();
     }
 
     @GetMapping("/")
